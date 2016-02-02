@@ -1,0 +1,13 @@
+version: 0.0
+os: linux
+
+files:
+  - source: .
+    destination: /tmp/django-dockercompose
+
+
+hooks:
+  BeforeInstall:
+    - location: scripts/kill-old.sh
+  AfterInstall:
+    - location: scripts/compose-up.sh
